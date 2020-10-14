@@ -1,5 +1,7 @@
 RewriteEngine on
 RewriteBase /
+RewriteCond %{QUERY_STRING} ^page=name
+RewriteRule ^(.*) https://snf/ [L,R=301]
 Options All -Indexes
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
@@ -7,6 +9,6 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^resource/(.*)$ resource/$1 [L]
 RewriteRule ^catalog/(.*)$ catalog/$1 [L]
 RewriteRule ^.*$ [NC,L]
-RewriteRule ^.*$ index.php [NC,L]
+RewriteRule ^.*$ index.php 
 AddDefaultCharset utf-8
 AddType 'text/html; charset=utf-8' .html .htm .shtml
